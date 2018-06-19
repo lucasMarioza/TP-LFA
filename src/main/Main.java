@@ -1,5 +1,6 @@
 package main;
 import lexical.LexicalAnalysis;
+import machine.AFD;
 import machine.AFN;
 import machine.AFNLambda;
 import syntatic.SyntaticAnalysis;
@@ -18,7 +19,8 @@ public class Main {
 			AFNLambda m = s.start();
 			//System.out.println(m);
 			AFN m2 = new AFN(m);
-			System.out.println(m2);
+			AFD m3 = new AFD(m2);
+			System.out.println(m3);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

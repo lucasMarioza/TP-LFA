@@ -1,7 +1,7 @@
 package machine;
 
-public class Transaction {
-	public Transaction(State from, State to, char symbol) {
+public class Transition {
+	public Transition(State from, State to, char symbol) {
 		this.from = from;
 		this.to = to;
 		this.symbol = symbol;

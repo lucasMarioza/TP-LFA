@@ -2,8 +2,7 @@ package machine;
 
 public class AFNLambda extends Machine {
 	public AFNLambda() {
-		super();
-		this.name="afnl";
+		super("afnl");
 	}
 	
 	public State newState() {
@@ -13,10 +12,10 @@ public class AFNLambda extends Machine {
 		return st;
 	}
 	
-	public Transaction newTransaction(State from,State to, char symbol) {
-		Transaction tr = new Transaction(from, to, symbol);
+	public Transition newTransaction(State from,State to, char symbol) {
+		Transition tr = new Transition(from, to, symbol);
 		if(symbol != '-' && !alphabet.contains(symbol))alphabet.add(symbol);
-		transactions.add(tr);
+		transitions.add(tr);
 		return tr;
 	}
 	public void addBegin(State st) {

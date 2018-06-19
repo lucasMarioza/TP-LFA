@@ -27,7 +27,7 @@ public class SyntaticAnalysis {
     	State ini = m.newState();
     	m.addBegin(ini);
     	lastSt = ini;
-    	Transaction symbolTr = null;
+    	Transition symbolTr = null;
     	
     	while(current.type != TokenType.END_OF_FILE) {
     		if(current.type == TokenType.PAROPEN) {

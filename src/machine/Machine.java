@@ -7,49 +7,50 @@ public abstract class Machine {
 	protected ArrayList<State> states;
 	protected ArrayList<Character> alphabet;
 	protected ArrayList<State> begins,ends;
-	protected ArrayList<Transaction> transactions;
+	protected ArrayList<Transition> transitions;
 	
-	protected Machine() {
+	protected Machine(String name) {
+			this.name = name;
 			states = new ArrayList<State>();
 			alphabet = new ArrayList<Character>();
 			begins = new ArrayList<State>();
 			ends = new ArrayList<State>();
-			transactions = new ArrayList<Transaction>();
+			transitions = new ArrayList<Transition>();
 	}
 
 	
 	public String toString() {
-		String s = "{ \""+name+"\": [\n\t\t[";
+		String s = "{ \""+name+"\": [\n    [";
 		for(int i=0;i<states.size();i++) {
 			if(i!=0)s+=", ";
 			State st = states.get(i);
 			s += st;
 		}
-		s+="],\n\t\t[";
+		s+="],\n    [";
 		for(int i=0;i<alphabet.size();i++) {
 			if(i!=0)s+=", ";
 			char ch = alphabet.get(i);
 			s += "\""+ch+"\"";
 		}
-		s+="],\n\t\t[";
-		for(int i=0;i<transactions.size();i++) {
-			Transaction tr = transactions.get(i);
-			s += "\n\t\t\t"+tr+"";
-			if(i!=transactions.size()-1)s+=", ";
+		s+="],\n    [";
+		for(int i=0;i<transitions.size();i++) {
+			Transition tr = transitions.get(i);
+			s += "\n      "+tr+"";
+			if(i!=transitions.size()-1)s+=", ";
 		}
-		s+="\n\t\t],\n\t\t[";
+		s+="\n    ],\n    [";
 		for(int i=0;i<begins.size();i++) {
 			if(i!=0)s+=", ";
 			State st = begins.get(i);
 			s += ""+st;
 		}
-		s+="],\n\t\t[";
+		s+="],\n    [";
 		for(int i=0;i<ends.size();i++) {
 			if(i!=0)s+=", ";
 			State st = ends.get(i);
 			s += ""+st;
 		}
-		s+="]\n\t]\n}";
+		s+="]\n  ]\n}";
 		return s;
 	}
 }
